@@ -110,27 +110,7 @@ This implementation follows Microsoft's Zero Trust architecture principles and a
 
 # 🔐 Security Workflow
 
-```text
-Developer
-      │
-      ▼
-Azure Kubernetes Service (AKS)
-      │
-Managed Identity Authentication
-      │
-      ▼
-Azure Key Vault
-      │
-Secrets Store CSI Driver
-      │
-Mount Secret into Pod
-      ▼
-Containerized Application
-      │
-Diagnostic Logs
-      ▼
-Microsoft Sentinel
-```
+![Architecture Diagram](images/work_flow.png)
 
 ---
 
@@ -142,9 +122,9 @@ A dedicated Azure Resource Group and Azure Key Vault were created to securely ma
 
 ### Screenshots
 
-![Create Resource Group & Key Vault](screenshots/create_RC_KV_use_bash.png)
+![Create Resource Group & Key Vault](images/create_RC_KV_use_bash.png)
 
-![Azure Key Vault](screenshots/keyvault.png)
+![Azure Key Vault](images/keyvault.png)
 
 ---
 
@@ -154,9 +134,9 @@ Azure Kubernetes Service was deployed with the Azure Key Vault Secrets Provider 
 
 ### Screenshots
 
-![Create AKS Cluster](screenshots/create_VM.png)
+![Create AKS Cluster](images/create_VM.png)
 
-![AKS Access](screenshots/create-AKS_Cluster_access.png)
+![AKS Access](images/create-AKS_Cluster_access.png)
 
 ---
 
@@ -172,9 +152,9 @@ Least privilege permissions were assigned to the AKS Managed Identity using the 
 
 ### Screenshots
 
-![Role Assignment](screenshots/az_role_assignment_create.png)
+![Role Assignment](images/az_role_assignment_create.png)
 
-![Key Vault Secrets User](screenshots/secrets1.1.png)
+![Key Vault Secrets User](images/secrets1.1.png)
 
 ---
 
@@ -184,11 +164,11 @@ The SecretProviderClass resource was configured to retrieve secrets from Azure K
 
 ### Screenshots
 
-![SecretProviderClass](screenshots/kubectl_apply.png)
+![SecretProviderClass](images/kubectl_apply.png)
 
-![Pod Deployment](screenshots/pod_ctrate.png)
+![Pod Deployment](images/pod_ctrate.png)
 
-![Running Pod](screenshots/states_running.png)
+![Running Pod](images/states_running.png)
 
 ---
 
@@ -198,7 +178,7 @@ The running container successfully retrieved the secret directly from Azure Key 
 
 ### Screenshot
 
-![Verify Secret](screenshots/check_Secret.png)
+![Verify Secret](images/check_Secret.png)
 
 ---
 
@@ -208,11 +188,11 @@ Diagnostic Settings were configured for Azure Key Vault and AKS. Security logs w
 
 ### Screenshots
 
-![AKS Diagnostic Settings](screenshots/link_AKS_Cluster.png)
+![AKS Diagnostic Settings](images/link_AKS_Cluster.png)
 
-![Azure Key Vault Diagnostics](screenshots/link_AzureKeyVault.png)
+![Azure Key Vault Diagnostics](images/link_AzureKeyVault.png)
 
-![Microsoft Sentinel Logs](screenshots/logs.png)
+![Microsoft Sentinel Logs](images/logs.png)
 
 ---
 
